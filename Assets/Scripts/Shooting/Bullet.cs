@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     public float damage;
     public float movementSpeed;
 
+    public GameObject enemyTriggered; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +28,15 @@ public class Bullet : MonoBehaviour
         }
 
         this.transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Enemy")
+        {
+            enemyTriggered = other.gameObject;
+            enemyTriggered.GetComponent<Enemy>().health -= damage;
+            Destroy(this.gameObject);
+        }
     }
 }
