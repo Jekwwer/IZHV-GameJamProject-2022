@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CollectCoin : MonoBehaviour
+public class CollectableControl : MonoBehaviour
 {
-    public AudioSource coinSFX;
+    public static int coinCount;
+    public GameObject coinCountDispaly;
 
     // Start is called before the first frame update
     void Start()
@@ -15,14 +17,6 @@ public class CollectCoin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        coinCountDispaly.GetComponent<Text>().text = "" + coinCount;
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        coinSFX.Play();
-        CollectableControl.coinCount++;
-        this.gameObject.SetActive(false);
-    }
-
 }
