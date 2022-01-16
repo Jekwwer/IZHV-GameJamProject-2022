@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ObstaclesGeneration : MonoBehaviour
 {
-    public GameObject obstacle;
+    public GameObject[] obstacles;
     public int xPos;
     public int zPos;
     public int obstacleCount;
+    private int obstacleNum;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +26,12 @@ public class ObstaclesGeneration : MonoBehaviour
     {
         while(obstacleCount <= 10)
         {
-            xPos = Random.Range(-4, 4);
-            zPos = Random.Range(-25, 25);
-            Instantiate(obstacle, new Vector3(xPos, 1.0f, zPos), Quaternion.identity);
+            xPos = Random.Range(-3, 4);
+            zPos = Random.Range(-15, 25);
+            obstacleNum = Random.Range(0, 4);
+            Instantiate(obstacles[obstacleNum], new Vector3(xPos, 0.9f, zPos), Quaternion.identity);
             yield return new WaitForSeconds(0.01f);
             obstacleCount++;
-
         }
     }
 }
