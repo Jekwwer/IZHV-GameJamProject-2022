@@ -21,16 +21,16 @@ public class LevelGenerator : MonoBehaviour
         if (creatingSection == false)
         {
             creatingSection = true;
-            StartCoroutine(GenerateSection());
+            //StartCoroutine(GenerateSection());
         }
     }
 
-    IEnumerator GenerateSection()
+/*    IEnumerator GenerateSection()
     {
         sectionNum = Random.Range(0, 3);
         Instantiate(section[sectionNum], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 50;
         yield return new WaitForSeconds(2);
         creatingSection = false;
-    }
+    }*/
 }

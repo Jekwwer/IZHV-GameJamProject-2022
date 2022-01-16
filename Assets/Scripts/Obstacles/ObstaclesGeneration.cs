@@ -27,7 +27,7 @@ public class ObstaclesGeneration : MonoBehaviour
         {
             xPos = Random.Range(-4, 4);
             zPos = Random.Range(-25, 25);
-            Instantiate(obstacle, new Vector3(xPos, 1, zPos), Quaternion.identity);
+            Instantiate(obstacle, new Vector3(xPos, 1.0f, zPos), Quaternion.identity);
             yield return new WaitForSeconds(0.01f);
             obstacleCount++;
 
