@@ -23,8 +23,10 @@ public class ObstaclesCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Timer for gameover screen
         if (startTimer)
         {
+            // Move player up for preventing coins collecting
             playerObj.transform.Translate(0, 10, 0);
             if (!timerReached)
             {

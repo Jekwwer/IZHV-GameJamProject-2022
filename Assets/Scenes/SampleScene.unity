@@ -6971,7 +6971,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   leftRightMovementSpeed: 4
-  zPos: 0
   animator: {fileID: 1417697635}
 --- !u!65 &506557946
 BoxCollider:
@@ -29993,7 +29992,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4276427521560659883, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
       propertyPath: Loop
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276427521560659883, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4276427521560659883, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
       propertyPath: m_Enabled
@@ -30002,14 +30005,14 @@ PrefabInstance:
     - target: {fileID: 4276427521560659883, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 273bd6427b49e5548a6f45590a4938b2, type: 3}
+      objectReference: {fileID: 8300000, guid: da7d62573d09a214b96c710628961313, type: 3}
     - target: {fileID: 4276427521560659883, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4276427521560659885, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
       propertyPath: m_Name
-      value: CoinCollect
+      value: BackgroundMusic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}

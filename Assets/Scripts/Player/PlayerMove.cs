@@ -6,7 +6,6 @@ public class PlayerMove : MonoBehaviour
 {
     public float movementSpeed = 3.0f;
     public float leftRightMovementSpeed = 4.0f;
-    public float zPos;
     private float acceleratedTimes = 0;
     public Animator animator;
 
@@ -19,8 +18,6 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        zPos = this.transform.position.z - acceleratedTimes * 25.0f;
-
         // Constant straight moving
         transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime, Space.World);
 
@@ -41,6 +38,7 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
+        // Accelerate every 25
         if ((this.transform.position.z - (acceleratedTimes * 25.0f)) > 25.0f)
         {
             StartCoroutine(Accelerate());
@@ -51,7 +49,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (movementSpeed <= 15.0f)
         {
-            animator.speed *= 1.02f;
+            animator.speed *= 1.035f;
             movementSpeed *= 1.1f;
             leftRightMovementSpeed *= 1.05f;
         }

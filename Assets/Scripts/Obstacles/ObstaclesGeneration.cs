@@ -20,7 +20,6 @@ public class ObstaclesGeneration : MonoBehaviour
             playerObj = GameObject.FindGameObjectWithTag("Player");
 
         Physics.IgnoreLayerCollision(3, 6, true);
-        //StartCoroutine(ObstacleDrop());
 
     }
 
@@ -43,6 +42,7 @@ public class ObstaclesGeneration : MonoBehaviour
         while (obstacleCount <= 10)
         {
             xPos = Random.Range(-3, 4);
+            // First obstacles spawns farther
             if (obstacleDropNum == 0)
             {
                 zPos = Random.Range(-15, 25);
@@ -52,6 +52,7 @@ public class ObstaclesGeneration : MonoBehaviour
                 zPos = Random.Range(-25, 25) + obstacleDropNum * 50;
 
             }
+            // take a random obstacle
             obstacleNum = Random.Range(0, 4);
             var rotation = Random.Range(0, 12);
             Instantiate(obstacles[obstacleNum], new Vector3(xPos, 0.9f, zPos), Quaternion.AngleAxis(rotation * 15, Vector3.up));

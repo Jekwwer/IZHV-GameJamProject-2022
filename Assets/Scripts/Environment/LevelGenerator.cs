@@ -10,7 +10,8 @@ public class LevelGenerator : MonoBehaviour
     private int generatedSectionsNum = 0;
     private int destroyedSectionsNum = 0;
     public int sectionNum;
-    public int zPos = 0; 
+    private int sectionRotNum;
+    public int zPos = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +39,10 @@ public class LevelGenerator : MonoBehaviour
     IEnumerator GenerateSection()
     {
         sectionNum = Random.Range(0, 4);
-        generatedSections[generatedSectionsNum % 3] = Instantiate(section[sectionNum % 2], 
-            new Vector3(0, 0, zPos), 
-            Quaternion.AngleAxis(sectionNum * 180, Vector3.up));
+        sectionRotNum = Random.Range(0, 2);
+        generatedSections[generatedSectionsNum % 3] = Instantiate(section[sectionNum % 2],
+            new Vector3(0, 0, zPos),
+            Quaternion.AngleAxis(sectionRotNum * 180, Vector3.up));
         generatedSectionsNum++;
         zPos += 50;
         yield return new WaitForSeconds(0.1f);
