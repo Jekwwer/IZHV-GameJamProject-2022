@@ -4,33 +4,53 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    private GameObject playerObj;
     public GameObject[] section;
-    public int zPos = 50;
-    public bool creatingSection = false;
+    private GameObject[] generatedSections = new GameObject[3];
+    private int generatedSectionsNum = 0;
+    private int destroyedSectionsNum = 0;
     public int sectionNum;
+    public int zPos = 0; 
 
     // Start is called before the first frame update
     void Start()
     {
+        if (playerObj == null)
+            playerObj = GameObject.FindGameObjectWithTag("Player");
 
+        StartCoroutine(GenerateSection());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (creatingSection == false)
+        float playerZpos = (playerObj.transform.position.z + 125.0f) - 50.0f * generatedSectionsNum;
+        Debug.Log(playerZpos);
+        if (playerZpos >= 50.0f)
         {
-            creatingSection = true;
-            //StartCoroutine(GenerateSection());
+            StartCoroutine(GenerateSection());
+        }
+        if (((playerObj.transform.position.z + 50.0f) - 50.0f * destroyedSectionsNum) >= 130.0f)
+        {
+            StartCoroutine(DestroySection());
         }
     }
 
-/*    IEnumerator GenerateSection()
+    IEnumerator GenerateSection()
     {
-        sectionNum = Random.Range(0, 3);
-        Instantiate(section[sectionNum], new Vector3(0, 0, zPos), Quaternion.identity);
+        sectionNum = Random.Range(0, 4);
+        generatedSections[generatedSectionsNum % 3] = Instantiate(section[sectionNum % 2], 
+            new Vector3(0, 0, zPos), 
+            Quaternion.AngleAxis(sectionNum * 180, Vector3.up));
+        generatedSectionsNum++;
         zPos += 50;
-        yield return new WaitForSeconds(2);
-        creatingSection = false;
-    }*/
+        yield return new WaitForSeconds(1);
+    }
+
+    IEnumerator DestroySection()
+    {
+        Destroy(generatedSections[destroyedSectionsNum % 3]);
+        destroyedSectionsNum++;
+        yield return new WaitForSeconds(1);
+    }
 }
