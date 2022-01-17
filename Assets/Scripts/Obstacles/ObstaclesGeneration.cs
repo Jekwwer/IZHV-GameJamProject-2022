@@ -11,6 +11,7 @@ public class ObstaclesGeneration : MonoBehaviour
     public int obstacleCount;
     private int obstacleNum;
     private int obstacleDropNum;
+    private int obstacleDestroyedDropNum;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,10 @@ public class ObstaclesGeneration : MonoBehaviour
         {
             StartCoroutine(GenerateObstacles());
         }
+/*        if (((playerObj.transform.position.z + 50.0f) - 50.0f * obstacleDestroyedDropNum) >= 100.0f)
+        {
+            StartCoroutine(DestroyObstacles());
+        }*/
     }
 
     IEnumerator GenerateObstacles()
@@ -56,4 +61,5 @@ public class ObstaclesGeneration : MonoBehaviour
         obstacleCount = 0;
         yield return new WaitForSeconds(0.1f);
     }
+
 }
