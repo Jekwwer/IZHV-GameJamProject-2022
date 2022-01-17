@@ -29991,6 +29991,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4276427521560659883, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276427521560659883, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276427521560659883, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 273bd6427b49e5548a6f45590a4938b2, type: 3}
+    - target: {fileID: 4276427521560659883, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4276427521560659885, guid: 0e268fbfcd0f2a7408bc50a48fc801f5, type: 3}
       propertyPath: m_Name
       value: CoinCollect
