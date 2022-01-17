@@ -27,14 +27,13 @@ public class ObstaclesGeneration : MonoBehaviour
     void Update()
     {
         float playerZpos = playerObj.transform.position.z + 100 - 50.0f * obstacleDropNum;
-        Debug.Log(playerZpos);
         if (playerZpos >= 50.0f)
         {
-            StartCoroutine(ObstacleDrop());
+            StartCoroutine(GenerateObstacles());
         }
     }
 
-    IEnumerator ObstacleDrop()
+    IEnumerator GenerateObstacles()
     {
         while (obstacleCount <= 10)
         {
@@ -49,12 +48,12 @@ public class ObstaclesGeneration : MonoBehaviour
 
             }
             obstacleNum = Random.Range(0, 4);
-            Instantiate(obstacles[obstacleNum], new Vector3(xPos, 0.9f, zPos), Quaternion.identity);
+            var rotation = Random.Range(0, 12);
+            Instantiate(obstacles[obstacleNum], new Vector3(xPos, 0.9f, zPos), Quaternion.AngleAxis(rotation * 15, Vector3.up));
             obstacleCount++;
         }
         obstacleDropNum++;
         obstacleCount = 0;
         yield return new WaitForSeconds(0.1f);
-
     }
 }

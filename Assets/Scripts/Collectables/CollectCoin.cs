@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class CollectCoin : MonoBehaviour
 {
-    public AudioSource coinSFX;
+    public AudioClip coinSound;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Physics.IgnoreLayerCollision(3, 6, true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        coinSFX.Play();
+        AudioSource.PlayClipAtPoint(coinSound, transform.position);
         CollectableControl.coinCount++;
-        this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 
 }

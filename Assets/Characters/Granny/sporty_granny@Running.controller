@@ -60,7 +60,13 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: sporty_granny@Running
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: Acceleration
+    m_Type: 1
+    m_DefaultFloat: 1
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -96,7 +102,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: c4ada3fa8c1cf9f49a9aac931e6fb258, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: Acceleration
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 

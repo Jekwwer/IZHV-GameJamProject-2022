@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     public float leftRightMovementSpeed = 4.0f;
     public float zPos;
     private float acceleratedTimes = 0;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +49,12 @@ public class PlayerMove : MonoBehaviour
     }
     IEnumerator Accelerate()
     {
-        movementSpeed *= 1.1f;
-        leftRightMovementSpeed *= 1.05f;
-
+        if (movementSpeed <= 15.0f)
+        {
+            animator.speed *= 1.02f;
+            movementSpeed *= 1.1f;
+            leftRightMovementSpeed *= 1.05f;
+        }
     yield return new WaitForSeconds(0.1f);
     }
 }
