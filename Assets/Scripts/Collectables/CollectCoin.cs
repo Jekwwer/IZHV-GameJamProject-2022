@@ -9,7 +9,7 @@ public class CollectCoin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.IgnoreLayerCollision(3, 6, true);
+
     }
 
     // Update is called once per frame
@@ -20,9 +20,12 @@ public class CollectCoin : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        AudioSource.PlayClipAtPoint(coinSound, transform.position);
-        CollectableControl.coinCount++;
-        Destroy(this.gameObject);
+        if (other.tag == "Player")
+        {
+            AudioSource.PlayClipAtPoint(coinSound, transform.position);
+            CollectableControl.coinCount++;
+            Destroy(this.gameObject);
+        }
     }
 
 }

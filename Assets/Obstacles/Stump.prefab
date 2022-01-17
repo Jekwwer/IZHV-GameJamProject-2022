@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8278771899875877696}
   - component: {fileID: 8278771899875877707}
   - component: {fileID: 8278771899875877708}
+  - component: {fileID: -8476389859661525477}
   m_Layer: 3
   m_Name: Stump
   m_TagString: Obstacle
@@ -127,6 +128,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8476389859661525477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278771899875877697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1391217bc2d774e89e6db2b0ff358b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
 --- !u!1 &8278771901182326385
 GameObject:
   m_ObjectHideFlags: 0

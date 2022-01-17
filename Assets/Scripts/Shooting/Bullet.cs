@@ -32,11 +32,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy")
+        if(other.tag == "Obstacle")
         {
             enemyTriggered = other.gameObject;
-            enemyTriggered.GetComponent<Enemy>().health -= damage;
+            enemyTriggered.GetComponent<Obstacle>().health -= damage;
             Destroy(this.gameObject);
         }
+
     }
 }
