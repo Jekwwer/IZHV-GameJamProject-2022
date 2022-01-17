@@ -1,10 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using Vector3 = UnityEngine.Vector3;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float movementSpeed = 3f;
-    public float leftRightMovementSpeed = 4f;
+    public float movementSpeed = 3.0f;
+    public float leftRightMovementSpeed = 4.0f;
+    public float zPos;
+    private float acceleratedTimes = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -15,8 +18,12 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed, Space.World);
+        zPos = this.transform.position.z - acceleratedTimes * 25.0f;
 
+        // Constant straight moving
+        transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime, Space.World);
+
+        // Left/Right moving contlols
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             if (this.gameObject.transform.position.x > LevelBoundary.leftSide)
@@ -24,6 +31,7 @@ public class PlayerMove : MonoBehaviour
                 transform.Translate(Vector3.left * Time.deltaTime * leftRightMovementSpeed);
             }
         }
+
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             if (this.gameObject.transform.position.x < LevelBoundary.rightSide)
@@ -31,5 +39,16 @@ public class PlayerMove : MonoBehaviour
                 transform.Translate(Vector3.right * Time.deltaTime * leftRightMovementSpeed);
             }
         }
+
+        if ((this.transform.position.z - (acceleratedTimes * 25.0f)) > 25.0f)
+        {
+            StartCoroutine(Accelerate());
+            acceleratedTimes++;
+        }
+    }
+    IEnumerator Accelerate()
+    {
+        movementSpeed *= 1.1f;
+        yield return new WaitForSeconds(0.1f);
     }
 }

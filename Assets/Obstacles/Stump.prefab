@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8278771899875877696}
   - component: {fileID: 8278771899875877707}
   - component: {fileID: 8278771899875877708}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Stump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 8278771901182326397}
   - component: {fileID: 8278771901182326398}
   - component: {fileID: 8278771901182326399}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Stump_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

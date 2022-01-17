@@ -25,12 +25,12 @@ public class LevelGenerator : MonoBehaviour
     void Update()
     {
         float playerZpos = (playerObj.transform.position.z + 125.0f) - 50.0f * generatedSectionsNum;
-        Debug.Log(playerZpos);
         if (playerZpos >= 50.0f)
         {
             StartCoroutine(GenerateSection());
         }
-        if (((playerObj.transform.position.z + 50.0f) - 50.0f * destroyedSectionsNum) >= 130.0f)
+        Debug.Log((playerObj.transform.position.z + 50.0f) - 50.0f * destroyedSectionsNum);
+        if (((playerObj.transform.position.z + 50.0f) - 50.0f * destroyedSectionsNum) >= 100.0f)
         {
             StartCoroutine(DestroySection());
         }
@@ -44,13 +44,13 @@ public class LevelGenerator : MonoBehaviour
             Quaternion.AngleAxis(sectionNum * 180, Vector3.up));
         generatedSectionsNum++;
         zPos += 50;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
     }
 
     IEnumerator DestroySection()
     {
         Destroy(generatedSections[destroyedSectionsNum % 3]);
         destroyedSectionsNum++;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
     }
 }

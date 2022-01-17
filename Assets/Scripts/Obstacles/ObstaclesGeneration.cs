@@ -13,7 +13,9 @@ public class ObstaclesGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics.IgnoreLayerCollision(3, 6, true);
         StartCoroutine(ObstacleDrop());
+
     }
 
     // Update is called once per frame
