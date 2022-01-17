@@ -4,36 +4,57 @@ using UnityEngine;
 
 public class ObstaclesGeneration : MonoBehaviour
 {
+    private GameObject playerObj;
     public GameObject[] obstacles;
     public int xPos;
     public int zPos;
     public int obstacleCount;
     private int obstacleNum;
+    private int obstacleDropNum;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (playerObj == null)
+            playerObj = GameObject.FindGameObjectWithTag("Player");
+
         Physics.IgnoreLayerCollision(3, 6, true);
-        StartCoroutine(ObstacleDrop());
+        //StartCoroutine(ObstacleDrop());
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float playerZpos = playerObj.transform.position.z + 100 - 50.0f * obstacleDropNum;
+        Debug.Log(playerZpos);
+        if (playerZpos >= 50.0f)
+        {
+            StartCoroutine(ObstacleDrop());
+        }
     }
 
     IEnumerator ObstacleDrop()
     {
-        while(obstacleCount <= 10)
+        while (obstacleCount <= 10)
         {
             xPos = Random.Range(-3, 4);
-            zPos = Random.Range(-15, 25);
+            if (obstacleDropNum == 0)
+            {
+                zPos = Random.Range(-15, 25);
+            }
+            else
+            {
+                zPos = Random.Range(-25, 25) + obstacleDropNum * 50;
+
+            }
             obstacleNum = Random.Range(0, 4);
             Instantiate(obstacles[obstacleNum], new Vector3(xPos, 0.9f, zPos), Quaternion.identity);
-            yield return new WaitForSeconds(0.01f);
             obstacleCount++;
         }
+        obstacleDropNum++;
+        obstacleCount = 0;
+        yield return new WaitForSeconds(0.1f);
+
     }
 }

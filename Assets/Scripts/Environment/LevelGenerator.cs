@@ -29,7 +29,6 @@ public class LevelGenerator : MonoBehaviour
         {
             StartCoroutine(GenerateSection());
         }
-        Debug.Log((playerObj.transform.position.z + 50.0f) - 50.0f * destroyedSectionsNum);
         if (((playerObj.transform.position.z + 50.0f) - 50.0f * destroyedSectionsNum) >= 100.0f)
         {
             StartCoroutine(DestroySection());
